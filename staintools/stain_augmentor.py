@@ -27,11 +27,7 @@ class StainAugmentor(object):
         :param I:
         :return:
         """
-        self.image_shape = I.shape
-        self.stain_matrix = self.extractor.get_stain_matrix(I)
-        self.source_concentrations = get_concentrations(I, self.stain_matrix)
-        self.n_stains = self.source_concentrations.shape[1]
-        self.tissue_mask = LuminosityThresholdTissueLocator.get_tissue_mask(I).ravel()
+        pass
 
     def pop(self):
         """
@@ -39,20 +35,4 @@ class StainAugmentor(object):
 
         :return:
         """
-        augmented_concentrations = copy.deepcopy(self.source_concentrations)
-
-        for i in range(self.n_stains):
-            alpha = np.random.uniform(1 - self.sigma1, 1 + self.sigma1)
-            beta = np.random.uniform(-self.sigma2, self.sigma2)
-            if self.augment_background:
-                augmented_concentrations[:, i] *= alpha
-                augmented_concentrations[:, i] += beta
-            else:
-                augmented_concentrations[self.tissue_mask, i] *= alpha
-                augmented_concentrations[self.tissue_mask, i] += beta
-
-        I_augmented = 255 * np.exp(-1 * np.dot(augmented_concentrations, self.stain_matrix))
-        I_augmented = I_augmented.reshape(self.image_shape)
-        I_augmented = np.clip(I_augmented, 0, 255)
-
-        return I_augmented
+        pass

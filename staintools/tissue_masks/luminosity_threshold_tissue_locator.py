@@ -17,13 +17,4 @@ class LuminosityThresholdTissueLocator(ABCTissueLocator):
         :param luminosity_threshold: Luminosity threshold.
         :return: Binary mask.
         """
-        assert is_uint8_image(I), "Image should be RGB uint8."
-        I_LAB = cv.cvtColor(I, cv.COLOR_RGB2LAB)
-        L = I_LAB[:, :, 0] / 255.0  # Convert to range [0,1].
-        mask = L < luminosity_threshold
-
-        # Check it's not empty
-        if mask.sum() == 0:
-            raise TissueMaskException("Empty tissue mask computed")
-
-        return mask
+        pass

@@ -20,19 +20,4 @@ class VahadaneStainExtractor(ABCStainExtractor):
         :param regularizer:
         :return:
         """
-        assert is_uint8_image(I), "Image should be RGB uint8."
-        # convert to OD and ignore background
-        tissue_mask = LuminosityThresholdTissueLocator.get_tissue_mask(I, luminosity_threshold=luminosity_threshold).reshape((-1,))
-        OD = convert_RGB_to_OD(I).reshape((-1, 3))
-        OD = OD[tissue_mask]
-
-        # do the dictionary learning
-        dictionary = spams.trainDL(X=OD.T, K=2, lambda1=regularizer, mode=2,
-                                   modeD=0, posAlpha=True, posD=True, verbose=False).T
-
-        # order H and E.
-        # H on first row.
-        if dictionary[0, 0] < dictionary[1, 0]:
-            dictionary = dictionary[[1, 0], :]
-
-        return normalize_matrix_rows(dictionary)
+        pass
