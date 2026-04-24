@@ -9,12 +9,7 @@ from staintools.utils.get_concentrations import get_concentrations
 class StainNormalizer(object):
 
     def __init__(self, method):
-        if method.lower() == 'macenko':
-            self.extractor = MacenkoStainExtractor
-        elif method.lower() == 'vahadane':
-            self.extractor = VahadaneStainExtractor
-        else:
-            raise Exception('Method not recognized.')
+        raise NotImplementedError
 
     def fit(self, target):
         """

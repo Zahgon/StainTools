@@ -1,6 +1,5 @@
 import numpy as np
 import os
-import matplotlib.pyplot as plt
 
 
 def plot_row_colors(C, fig_size=6, title=None):
@@ -27,7 +26,15 @@ def plot_image(image, show=True, fig_size=10, title=None):
     pass
 
 
-def plot_image_list(images, width=5, sub_sample=False, rand=False, save_name=None, title_list=None, show=True):
+def plot_image_list(
+    images,
+    width=5,
+    sub_sample=False,
+    rand=False,
+    save_name=None,
+    title_list=None,
+    show=True,
+):
     """
     Display a grid of images.
 

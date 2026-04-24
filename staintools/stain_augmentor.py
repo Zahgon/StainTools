@@ -10,15 +10,7 @@ from staintools.utils.get_concentrations import get_concentrations
 class StainAugmentor(object):
 
     def __init__(self, method, sigma1=0.2, sigma2=0.2, augment_background=True):
-        if method.lower() == 'macenko':
-            self.extractor = MacenkoStainExtractor
-        elif method.lower() == 'vahadane':
-            self.extractor = VahadaneStainExtractor
-        else:
-            raise Exception('Method not recognized.')
-        self.sigma1 = sigma1
-        self.sigma2 = sigma2
-        self.augment_background = augment_background
+        raise NotImplementedError
 
     def fit(self, I):
         """

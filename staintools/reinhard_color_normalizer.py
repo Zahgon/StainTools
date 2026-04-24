@@ -12,8 +12,7 @@ class ReinhardColorNormalizer(object):
     """
 
     def __init__(self):
-        self.target_means = None
-        self.target_stds = None
+        raise NotImplementedError
 
     def fit(self, target):
         """

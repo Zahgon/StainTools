@@ -10,9 +10,7 @@ def convert_RGB_to_OD(I):
     :param I: Image RGB uint8.
     :return: Optical denisty RGB image.
     """
-    mask = (I == 0)
-    I[mask] = 1
-    return np.maximum(-1 * np.log(I / 255), 1e-6)
+    raise NotImplementedError
 
 
 def convert_OD_to_RGB(OD):
@@ -24,9 +22,7 @@ def convert_OD_to_RGB(OD):
     :param OD: Optical denisty RGB image.
     :return: Image RGB uint8.
     """
-    assert OD.min() >= 0, "Negative optical density."
-    OD = np.maximum(OD, 1e-6)
-    return (255 * np.exp(-1 * OD)).astype(np.uint8)
+    raise NotImplementedError
 
 
 

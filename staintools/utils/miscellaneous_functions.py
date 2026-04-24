@@ -8,12 +8,7 @@ def get_sign(x):
     :return: The sign of x.
     """
 
-    if x > 0:
-        return +1
-    elif x < 0:
-        return -1
-    elif x == 0:
-        return 0
+    raise NotImplementedError
 
 
 def normalize_matrix_rows(A):
@@ -23,4 +18,4 @@ def normalize_matrix_rows(A):
     :param A: An array.
     :return: Array with rows normalized.
     """
-    return A / np.linalg.norm(A, axis=1)[:, None]
+    raise NotImplementedError
